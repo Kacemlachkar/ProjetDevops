@@ -1,30 +1,30 @@
 version: '3'
 services:
-  mysql-db:
+  mysql-db1:
     image: mysql:latest
-    container_name: mysql-db-spring
+    container_name: mysql-db-spring1
     ports:
       - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=dbfoyer
     networks:
-      - network2
+      - network3
 
-  spring-boot-app:
+  spring-boot-app1:
     image: chahinefathallah/foyertp
-    container_name: docker-foyer
+    container_name: docker-foyer1
     ports:
       - "8088:8089"
     depends_on:
-      - mysql-db
+      - mysql-db1
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db-spring:3306/dbfoyer?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db-spring1:3306/dbfoyer?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     networks:
-      - network2
+      - network3
 
 
 networks:
-  network2:
+  network3:
