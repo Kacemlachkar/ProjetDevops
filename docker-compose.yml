@@ -12,7 +12,7 @@ services:
       - network
 
   spring-boot-app:
-    image: nourdocker856/foyer
+    image: chahinefathallah/foyertp
     container_name: docker-compose-foyer
     ports:
       - "8088:8089"
