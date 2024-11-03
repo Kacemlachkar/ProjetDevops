@@ -9,7 +9,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=dbfoyer
     networks:
-      - my-network
+      - network
 
   spring-boot-app:
     image: nourdocker856/foyer
@@ -23,8 +23,8 @@ services:
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     networks:
-      - my-network
+      - network
 
 
 networks:
-  my-network:
+  network:
