@@ -2,14 +2,14 @@ version: '3'
 services:
   mysql-db:
     image: mysql:latest
-    container_name: mysql-db-compose
+    container_name: mysql-db-compose-angular
     ports:
       - "3307:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=dbfoyer
     networks:
-      - network
+      - network1
 
   spring-boot-app:
     image: chahinefathallah/foyertp
@@ -19,12 +19,12 @@ services:
     depends_on:
       - mysql-db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db-compose:3306/dbfoyer?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db-compose-angular:3306/dbfoyer?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
     networks:
-      - network
+      - network1
 
 
 networks:
-  network:
+  network1:
