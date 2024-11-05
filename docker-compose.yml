@@ -27,15 +27,6 @@ services:
     networks:
       - tp-foyer_network
 
-  nexus_new:
-    image: sonatype/nexus3
-    container_name: nexus_new
-    ports:
-      - "8086:8086"  # Port interne Nexus est généralement 8081
-    volumes:
-      - nexus-data:/nexus-data
-    networks:
-      - tp-foyer_network
 
   sonarqube:
     image: sonarqube
@@ -72,7 +63,6 @@ services:
 
 volumes:
   mysql-data:
-  nexus-data:
   sonarqube-data:
   prometheus-data:
   jenkins_home:
