@@ -48,23 +48,11 @@ services:
     networks:
       - tp-foyer_network
 
-  prometheus:
-    image: prom/prometheus
-    ports:
-      - "9090:9090"
-    volumes:
-      - prometheus-data:/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-    restart: always
-    networks:
-      - tp-foyer_network
+
 
 volumes:
   mysql-data:
   sonarqube-data:
-  prometheus-data:
   jenkins_home:
 
 networks:
