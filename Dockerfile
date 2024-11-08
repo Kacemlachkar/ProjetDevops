@@ -1,10 +1,4 @@
-FROM openjdk:17
-
-# Set the working directory
-WORKDIR /app
-
-COPY target/*.jar /app.jar
-
+FROM openjdk:17-jdk-alpine
 EXPOSE 8089
-
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ADD target/tp-foyer-5.2.0.jar tp-foyer-5.2.0.jar
+ENTRYPOINT ["java","-jar","/tp-foyer-5.2.0.jar"]
