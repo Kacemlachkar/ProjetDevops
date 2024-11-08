@@ -32,7 +32,11 @@ public class Foyer {
             @JsonIgnore
             @ToString.Exclude
     Set<Bloc> blocs;
-
+    
+    public Foyer(String nom_foyer, long l) {
+        this.nomFoyer = nom_foyer;
+        this.capaciteFoyer = l;
+    }
 }
 
 
